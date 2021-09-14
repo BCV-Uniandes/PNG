@@ -3,6 +3,10 @@
 This repository provides a PyTorch implementation of the paper [Panoptic Narrative Grounding](https://arxiv.org/abs/2109.04988). To appear at [ICCV,2021](https://iccv2021.thecvf.com/) as an Oral Presentation. Panoptic Narrative Grounding is a spatially fine and general formulation of the natural language visual grounding problem. We establish an experimental framework for the study of this new task, including new ground truth and metrics, and we propose a strong baseline method to serve as stepping stone for future work. We exploit the intrinsic semantic richness in an image by including panoptic categories, and we approach visual grounding at a fine-grained level by using segmentations. In terms of ground truth, we propose an algorithm to automatically transfer Localized Narratives annotations to specific regions in the panoptic segmentations of the MS COCO dataset. The proposed baseline achieves a performance of 55.4 absolute Average Recall points. This result is a suitable foundation to push the envelope further in the development of methods for Panoptic Narrative Grounding.
 <br/>
 
+<div align="center">
+  <img src="images/png.gif" width="600px"/>
+</div>
+
 ## Paper
 
 [Panoptic Narrative Grounding](https://arxiv.org/abs/2109.04988) <br/>
