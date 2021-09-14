@@ -75,7 +75,7 @@ python main --init_method "tcp://localhost:8080" NUM_GPUS 1 DATA.PATH_TO_DATA_DI
 
 ## Pretrained model
 
-To reproduce all our results as reported bellow, you can use our [pretrained model](http://lambda004.uniandes.edu.co/panoptic-narrative-grounding/model_final.pth) and our source code.
+To reproduce all our results as reported bellow, you can use our [pretrained model](https://lambda004.uniandes.edu.co/panoptic-narrative-grounding/pretrained-models/model_final.pth) and our source code.
 
 | Method | things + stuff | things | stuff |
 | :----: | :------------: | :----: | :---: |
