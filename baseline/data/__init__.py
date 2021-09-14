@@ -1,0 +1,3 @@
+from .panoptic_narrative_grounding import PanopticNarrativeGroundingDataset
+
+PanopticNarrativeGroundingDataset
