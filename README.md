@@ -1,15 +1,14 @@
 # Panoptic Narrative Grounding
 
-This repository provides a PyTorch implementation of the paper [Panoptic Narrative Grounding](https://arxiv.org/abs/2109.04988). To appear at [ICCV,2021](https://iccv2021.thecvf.com/) as an Oral Presentation. Panoptic Narrative Grounding is a spatially fine and general formulation of the natural language visual grounding problem. We establish an experimental framework for the study of this new task, including new ground truth and metrics, and we propose a strong baseline method to serve as stepping stone for future work. We exploit the intrinsic semantic richness in an image by including panoptic categories, and we approach visual grounding at a fine-grained level by using segmentations. In terms of ground truth, we propose an algorithm to automatically transfer Localized Narratives annotations to specific regions in the panoptic segmentations of the MS COCO dataset. The proposed baseline achieves a performance of 55.4 absolute Average Recall points. This result is a suitable foundation to push the envelope further in the development of methods for Panoptic Narrative Grounding.
+This repository provides a PyTorch implementation of the paper [Panoptic Narrative Grounding](https://arxiv.org/abs/2109.04988). To appear at [ICCV, 2021](https://iccv2021.thecvf.com/) as an Oral Presentation. Panoptic Narrative Grounding is a spatially fine and general formulation of the natural language visual grounding problem. We establish an experimental framework for the study of this new task, including new ground truth and metrics, and we propose a strong baseline method to serve as stepping stone for future work. We exploit the intrinsic semantic richness in an image by including panoptic categories, and we approach visual grounding at a fine-grained level by using segmentations. In terms of ground truth, we propose an algorithm to automatically transfer Localized Narratives annotations to specific regions in the panoptic segmentations of the MS COCO dataset. The proposed baseline achieves a performance of 55.4 absolute Average Recall points. This result is a suitable foundation to push the envelope further in the development of methods for Panoptic Narrative Grounding.
 <br/>
 
 ## Paper
 
 [Panoptic Narrative Grounding](https://arxiv.org/abs/2109.04988) <br/>
-[Cristina González](https://cigonzalez.github.io/)<sup> 1 </sup>, Nicolás Ayobi<sup> 1 </sup>,Isabela Hernández<sup>1</sup>,José Hernández <sup>1</sup>, [Jordi Pont-Tuset](https://jponttuset.cat/)<sup>2</sup>, [Pablo Arbeláez](https://scholar.google.com.co/citations?user=k0nZO90AAAAJ&hl=en)<sup>1</sup> <br/>
+[Cristina González](https://cigonzalez.github.io/)<sup>1</sup>, Nicolás Ayobi<sup>1</sup>, Isabela Hernández<sup>1</sup>, José Hernández <sup>1</sup>, [Jordi Pont-Tuset](https://jponttuset.cat/)<sup>2</sup>, [Pablo Arbeláez](https://scholar.google.com.co/citations?user=k0nZO90AAAAJ&hl=en)<sup>1</sup> <br/>
 <sup>1 </sup> Center for Research and Formation in Artificial Intelligence ([CINFONIA](https://cinfonia.uniandes.edu.co/)) , Universidad de Los Andes. <br/>
 <sup>2 </sup>Google Research, Switzerland. <br/>
-<br/>
 
 ## Installation
 
@@ -34,7 +33,7 @@ $ cd PNG
 
 1. Download the 2017 MSCOCO Dataset from its [official webpage](https://cocodataset.org/#download). You will need the train and validation splits' images1 and panoptic segmentations annotations.
 
-2. Download the Panoptic Narrative Grounding Benchmark and pre-computed features from our [project webpage](coming soon) with the following folders structure:
+2. Download the Panoptic Narrative Grounding Benchmark and pre-computed features from our [project webpage](https://bcv-uniandes.github.io/panoptic-narrative-grounding/#downloads) with the following folders structure:
 
 ```
 panoptic_narrative_grounding
