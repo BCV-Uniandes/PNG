@@ -65,16 +65,16 @@ panoptic_narrative_grounding
    |_ panoptic_val2017.json
 ```
 
-We have available our pre-computed features for the validation split. The pre-computed features for the training split are not available due to their size. For training, you can generate both splits' features by downloading the you can use our [pretrained model](https://dl.fbaipublicfiles.com/detectron2/COCO-PanopticSegmentation/panoptic_fpn_R_101_3x/139514519/model_final_cafdb1.pkl) and using the modified code of [detectron2](https://github.com/facebookresearch/detectron2). Use the following command for inference in desired data split:
+We have available the pre-computed features for the validation split. The pre-computed features for the training split are not available due to their size. However, you can generate both splits' features by downloading the PanopticFPN [pretrained model](https://dl.fbaipublicfiles.com/detectron2/COCO-PanopticSegmentation/panoptic_fpn_R_101_3x/139514519/model_final_cafdb1.pkl) and using the modified code of [detectron2](https://github.com/facebookresearch/detectron2) in this repository. Execute the following command for inference in each of the desired data splits:
 ```bash
 python tools/train_net.py --num-gpus num_gpus \
     --eval-only \
-    --config-file "configs/COCO-PanopticSegmentation/panoptic_fpn_R_101_3x.yaml" \
+    --config-file "configs/COCO-PanopticSegmentation/panoptic_fpn_R_101_3x_val2017.yaml" \
     --dist-url tcp://0.0.0.0:12340 OUTPUT_DIR "../data/panoptic_narrative_grounding/features/val2017" \
     MODEL.WEIGHTS "path_to_the_pretrained_model/model_final_cafdb1.pkl" \
 ```
 
-3. Pre-process the Panoptic narrative Grounding Ground-Truth Annotation for the dataloader using the following script.
+1. Pre-process the Panoptic narrative Grounding Ground-Truth Annotation for the dataloader using the following script.
 ```bash
 cd data
 python pre_process.py --data_dir path_to_data_dir

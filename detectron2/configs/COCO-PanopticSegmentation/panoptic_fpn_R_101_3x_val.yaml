@@ -7,4 +7,4 @@ SOLVER:
   STEPS: (210000, 250000)
   MAX_ITER: 270000
 DATASETS:
-  TEST: ("coco_2017_val_panoptic_separated", "coco_2017_train_panoptic_separated",)
+  TEST: ("coco_2017_val_panoptic_separated",)
