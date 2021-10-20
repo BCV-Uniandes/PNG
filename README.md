@@ -74,7 +74,7 @@ python tools/train_net.py --num-gpus num_gpus \
     MODEL.WEIGHTS "path_to_the_pretrained_model/model_final_cafdb1.pkl" \
 ```
 
-1. Pre-process the Panoptic narrative Grounding Ground-Truth Annotation for the dataloader using the following script.
+3. Pre-process the Panoptic narrative Grounding Ground-Truth Annotation for the dataloader using the following script.
 ```bash
 cd data
 python pre_process.py --data_dir path_to_data_dir
