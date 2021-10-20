@@ -37,7 +37,7 @@ $ cd PNG
 
 ### Panoptic Marrative Grounding Benchmark
 
-1. Download the 2017 MSCOCO Dataset from its [official webpage](https://cocodataset.org/#download). You will need the train and validation splits' images1 and panoptic segmentations annotations.
+1. Download the 2017 MSCOCO Dataset from its [official webpage](https://cocodataset.org/#download). You will need the train and validation splits' images and panoptic segmentations annotations.
 
 2. Download the Panoptic Narrative Grounding Benchmark and pre-computed features from our [project webpage](https://bcv-uniandes.github.io/panoptic-narrative-grounding/#downloads) with the following folders structure:
 
@@ -59,8 +59,47 @@ panoptic_narrative_grounding
    |_ png_coco_train2017.json
    |_ png_coco_val2017.json
    |_ panoptic_segmentation
-      |_ train2017
-      |_ val2017
+   |  |_ train2017
+   |  |_ val2017
+   |_ panoptic_train2017.json
+   |_ panoptic_val2017.json
+```
+
+We have available our pre-computed features for the validation split. The pre-computed features for the training split are not available due to their size. For training, you can generate both splits' features by downloading the you can use our [pretrained model](https://dl.fbaipublicfiles.com/detectron2/COCO-PanopticSegmentation/panoptic_fpn_R_101_3x/139514519/model_final_cafdb1.pkl) and using the modified code of [detectron2](https://github.com/facebookresearch/detectron2). Use the following command for inference in desired data split:
+```bash
+python tools/train_net.py --num-gpus num_gpus \
+    --eval-only \
+    --config-file "configs/COCO-PanopticSegmentation/panoptic_fpn_R_101_3x.yaml" \
+    --dist-url tcp://0.0.0.0:12340 OUTPUT_DIR "../data/panoptic_narrative_grounding/features/val2017" \
+    MODEL.WEIGHTS "path_to_the_pretrained_model/model_final_cafdb1.pkl" \
+```
+
+3. Pre-process the Panoptic narrative Grounding Ground-Truth Annotation for the dataloader using the following script.
+```bash
+cd data
+python pre_process.py --data_dir path_to_data_dir
+```
+
+Although this is a one-time step, this code is paralellizable using MPI and the following command:
+```bash
+cd data
+mpiexec -n 10 python data.pre_process.py --data_dir path_to_data_dir
+```
+
+At the end of this step you should have two new files in your annotations folder.
+
+```
+panoptic_narrative_grounding
+|_ annotations
+   |_ png_coco_train2017.json
+   |_ png_coco_val2017.json
+   |_ png_coco_train2017_dataloader.json
+   |_ png_coco_val2017_dataloader.json
+   |_ panoptic_segmentation
+   |  |_ train2017
+   |  |_ val2017
+   |_ panoptic_train2017.json
+   |_ panoptic_val2017.json
 ```
 
 ### Train setup:
@@ -68,7 +107,8 @@ panoptic_narrative_grounding
 Modify the routes in train_net.sh according to your local paths.
 
 ```bash
-python main --init_method "tcp://localhost:8080" NUM_GPUS 1 DATA.PATH_TO_DATA_DIR path_to_your_data_dir DATA.PATH_TO_FEATURES_DIR path_to_your_features_dir OUTPUT_DIR output_dir
+cd ./baseline
+python  -W ignore -m main --init_method "tcp://localhost:8080" NUM_GPUS 1 DATA.PATH_TO_DATA_DIR path_to_your_data_dir DATA.PATH_TO_FEATURES_DIR path_to_your_features_dir OUTPUT_DIR output_dir
 ```
 
 ### Test setup:
@@ -76,7 +116,8 @@ python main --init_method "tcp://localhost:8080" NUM_GPUS 1 DATA.PATH_TO_DATA_DI
 Modify the routes in test_net.sh according to your local paths.
 
 ```bash
-python main --init_method "tcp://localhost:8080" NUM_GPUS 1 DATA.PATH_TO_DATA_DIR path_to_your_data_dir DATA.PATH_TO_FEATURES_DIR path_to_your_features_dir OUTPUT_DIR output_dir TRAIN.ENABLE "False"
+cd ./baseline
+python  -W ignore -m main --init_method "tcp://localhost:8080" NUM_GPUS 1 DATA.PATH_TO_DATA_DIR path_to_your_data_dir DATA.PATH_TO_FEATURES_DIR path_to_your_features_dir TRAIN.CHECKPOINT_FILE_PATH path_to_pretrained_model OUTPUT_DIR output_dir TRAIN.ENABLE "False"
 ```
 
 ## Pretrained model

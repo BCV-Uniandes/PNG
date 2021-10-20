@@ -73,10 +73,10 @@ _C.DATA = CfgNode()
 _C.DATA.DATASET_SUFFIX = ""
 
 # The path to the data directory.
-_C.DATA.PATH_TO_DATA_DIR = ""
+_C.DATA.PATH_TO_DATA_DIR = "/panoptic_narrative_grounding"
 
 # The path to the features directory.
-_C.DATA.PATH_TO_FEATURES_DIR = ""
+_C.DATA.PATH_TO_FEATURES_DIR = "/panoptic_narrative_grounding/features"
 
 # Train split.
 _C.DATA.TRAIN_SPLIT = "train2017"
