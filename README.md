@@ -35,7 +35,7 @@ $ cd PNG
 
 ## Dataset Preparation
 
-### Panoptic Marrative Grounding Benchmark
+### Panoptic Narrative Grounding Benchmark
 
 1. Download the 2017 MSCOCO Dataset from its [official webpage](https://cocodataset.org/#download). You will need the train and validation splits' images and panoptic segmentations annotations.
 
